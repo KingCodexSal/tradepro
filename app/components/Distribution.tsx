@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image"; // For image optimization
 
 const Distribution = () => {
   return (
@@ -31,22 +32,25 @@ const Distribution = () => {
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.6 }}
-            className="bg-violet-500 text-white py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300"
+            className="bg-violet-500 text-white py-2 px-6 rounded-lg shadow-md hover:shadow-lg transition duration-300 hover:bg-violet-600"
           >
             Learn More
           </motion.button>
         </div>
 
+        {/* Image Section */}
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.8 }}
           className="w-full lg:w-1/2 mb-8 lg:mb-0 mt-8 md:mt-0"
         >
-          <img
-            src="/distribution.jpg"
-            alt="About us"
-            className="rounded-lg shadow-lg"
+          <Image
+            src="/distribution.jpg" // Make sure the image is in your public folder
+            alt="Distribution"
+            width={600} // You can adjust the width and height
+            height={400}
+            className="rounded-lg shadow-lg object-cover w-full h-full"
           />
         </motion.div>
       </div>

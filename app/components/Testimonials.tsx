@@ -1,5 +1,4 @@
 import React from "react";
-import { motion } from "framer-motion";
 import { InfiniteMovingCards } from "./ui/infinite-moving-cards";
 
 const Testimonials = () => {

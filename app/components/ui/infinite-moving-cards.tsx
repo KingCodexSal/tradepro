@@ -23,13 +23,13 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
+  const [start, setStart] = useState(false);
+
   useEffect(() => {
     addAnimation();
   }, []);
 
-  const [start, setStart] = useState(false);
-
-  function addAnimation() {
+  const addAnimation = () => {
     if (containerRef.current && scrollerRef.current) {
       const scrollerContent = Array.from(scrollerRef.current.children);
 
@@ -44,7 +44,7 @@ export const InfiniteMovingCards = ({
       getSpeed();
       setStart(true);
     }
-  }
+  };
 
   const getDirection = () => {
     if (containerRef.current) {
@@ -90,9 +90,9 @@ export const InfiniteMovingCards = ({
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
       >
-        {items.map((item, idx) => (
+        {items.map((item) => (
           <li
-            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw] flex flex-col justify-between" // Added flex-col and justify-between
+            className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw] flex flex-col justify-between"
             style={{
               background: "rgb('4,7,29')",
               backgroundColor:
@@ -101,8 +101,6 @@ export const InfiniteMovingCards = ({
             key={item.name}
           >
             <blockquote className="flex flex-col justify-between h-full">
-              {" "}
-              {/* Ensures even spacing */}
               <div>
                 <span className="relative z-20 text-sm leading-[1.6] text-gray-100 font-normal">
                   {item.quote}

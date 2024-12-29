@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image"; // Use next/image for optimized images
 
 const CryptoControlSection = () => {
   return (
@@ -60,6 +61,9 @@ const CryptoControlSection = () => {
                   <h4 className="font-semibold text-violet-600">
                     Create an account easily
                   </h4>
+                  <p className="text-gray-400 mt-2">
+                    Signing up is simple and gets you started in no time.
+                  </p>
                 </div>
               </div>
             </li>
@@ -74,6 +78,9 @@ const CryptoControlSection = () => {
                   <h4 className="font-semibold text-violet-600">
                     Choose crypto and start trading
                   </h4>
+                  <p className="text-gray-400 mt-2">
+                    Select your preferred crypto and begin trading immediately.
+                  </p>
                 </div>
               </div>
             </li>
@@ -91,9 +98,11 @@ const CryptoControlSection = () => {
           }}
           className="w-full lg:w-1/2 mb-8 lg:mb-0"
         >
-          <img
+          <Image
             src="/crypto-app.jpg"
             alt="Crypto App"
+            width={600}
+            height={400}
             className="rounded-lg shadow-lg object-cover w-full h-full md:mt-24 lg:mt-0"
           />
         </motion.div>

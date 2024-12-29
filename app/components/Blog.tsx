@@ -1,5 +1,6 @@
 import React from "react";
 import { motion } from "framer-motion";
+import Image from "next/image"; // Use Next.js Image component
 
 const BlogSection = () => {
   const blogs = [
@@ -48,20 +49,25 @@ const BlogSection = () => {
         {blogs.map((blog, index) => (
           <motion.div
             key={index}
-            className="bg-slate-800 rounded-xl shadow-lg overflow-hidden"
+            className="bg-slate-800 rounded-xl shadow-lg overflow-hidden transform transition-all hover:scale-105"
             initial={{ opacity: 0 }}
             whileInView={{ opacity: 1 }}
             transition={{ duration: 1, delay: 0.3 + index * 0.2 }} // Adjust delay based on index for stagger effect
           >
-            <img
+            <Image
               src={blog.image}
               alt={blog.title}
+              width={500}
+              height={300}
               className="w-full h-48 object-cover"
             />
             <div className="p-6">
-              <h3 className="text-2xl line-clamp-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-600 to-violet-700">
+              <motion.h3
+                whileHover={{ scale: 1.1 }}
+                className="text-2xl line-clamp-1 font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 via-indigo-600 to-violet-700"
+              >
                 {blog.title}
-              </h3>
+              </motion.h3>
               <p className="text-white mt-4">{blog.excerpt}</p>
               <a
                 href="#"
